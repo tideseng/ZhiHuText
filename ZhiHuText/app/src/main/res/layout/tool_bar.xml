@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+    <!--最初tool_bar只有这一个控件，将最外层改为RelativeLayout是为了添加布局控件显示标题-->
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize">
+    </android.support.v7.widget.Toolbar>
+    <!--toolbar默认的title离抽屉按钮稍远，所以将代码中的title改为透明，布局文件中将创建TextView作为title-->
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="60dp"
+        android:text="首页"
+        android:textColor="#ffffff"
+        android:textSize="20sp"/>
+
+    <!--将三个控件套上LinearLayout是为了让它们排在一起，当抽屉打开时，第二个控件gone后，第一个控件的位置就自动的显示到了第二个控件上-->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+            <!--给ImageView套一层LinearLayout是为了间接的给ImageView设置padding值，不至于三个控件挤在一起-->
+            <ImageButton
+                android:id="@+id/ib_search"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/menu_search"
+                android:scaleType="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_remind"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+
+            <ImageButton
+                android:id="@+id/ib_remind"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/menu_remind"
+                android:scaleType="center"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/ll_more"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:padding="12dp">
+
+            <ImageButton
+                android:id="@+id/ib_more"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:background="@drawable/menu_more"
+                android:scaleType="center"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>
+
+
